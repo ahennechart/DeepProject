@@ -14,7 +14,7 @@ Datasets are saved for 3 different sizes for a k fold = 5:
 - Image dimension : (64, 64) Usable with 'ck5fold64.npy'
 - Image dimension : (96, 96) Usable with 'ck5fold96x96.npy'
 
-A DataSet is also usable for a k-fold = 10:
+A DataSet can also be used for a k-fold = 10:
 
 - Image dimension : (32,32) Usable with 'ck10fold.npy'
 
