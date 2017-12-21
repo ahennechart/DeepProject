@@ -82,9 +82,15 @@ Once CK+ load, we realise a face detection, we crop it and then we resize the pi
 
 When the treatment of the dataset is done, we perform a k-fold method.
 
-### How we perform an efficient splitting for k-fold:
+### How we perform an efficient splitting for k-fold: (cf ShuffleDataSet(mat,k,num_classe))
 
-#### 
+#### Step 1
+
+We create 1 Empty Folder per class (let's name them SortedSeq [Label] ), we fill each one with the Sequences (Matching the folder's number with the Label), then we shuffle randomly those folders.
+
+#### Step 2
+
+We create k new empty folders, for each 
 
 
 ## Results
