@@ -82,6 +82,10 @@ Once CK+ load, we realise a face detection, we crop it and then we resize the pi
 
 When the treatment of the dataset is done, we perform a k-fold method.
 
+#### How we perform an efficient k-fold.
+
+
+
 
 ## Results
 
