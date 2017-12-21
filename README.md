@@ -90,7 +90,7 @@ We built 1 Empty Folder per class (let's name them SortedSeq[Label]), we filled 
 
 #### Step 2
 
-We built k new empty folders,then we equally filled them with each label using SortedSeq.
+We built k new empty folders,then we equally (actually it is equal modulo(k), the rest is randomly distribuate) filled them with each label using SortedSeq.
 
 ## Results
 
