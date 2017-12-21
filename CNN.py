@@ -44,7 +44,6 @@ k =5
 img_rows, img_cols = 32, 32
 
 # Read and save dataset 
-
 '''
 DataSet = buildDataSetCK([img_rows, img_cols])
 k_folders = ShuffleDataSet(DataSet,k,num_classes)

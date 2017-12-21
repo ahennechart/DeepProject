@@ -12,7 +12,7 @@ import Cropping as cf
 from Cropping import faceCropping as fc
 import random as rd
 
-path = 'c:/Users/Alix/Desktop/CK+/'
+path = 'c:/Users/Admin/Desktop/CK+/'
 
 def buildDataSetCK(size):
     
