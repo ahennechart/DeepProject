@@ -66,9 +66,9 @@ Show the confusion matrix using a confusion matrix computed with sklearn.metrics
 
 ## Architecture 
 
-```
-Architecture Layout
-```
+
+![](architectureLayout.png)
+
 
 
 ## Data Base and treatment
