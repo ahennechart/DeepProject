@@ -86,12 +86,11 @@ When the treatment of the dataset is done, we perform a k-fold method.
 
 #### Step 1
 
-We create 1 Empty Folder per class (let's name them SortedSeq [Label] ), we fill each one with the Sequences (Matching the folder's number with the Label), then we shuffle randomly those folders.
+We built 1 Empty Folder per class (let's name them SortedSeq[Label]), we filled each one with the Sequences (Matching the folder's number with the Label), then we shuffle randomly those folders.
 
 #### Step 2
 
-We create k new empty folders, for each 
-
+We built k new empty folders,then we equally filled them with each label using SortedSeq.
 
 ## Results
 
