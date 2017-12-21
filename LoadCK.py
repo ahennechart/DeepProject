@@ -1,3 +1,9 @@
+'''
+
+@author: T.Gosset & A.Hennehart
+
+Helped by A.Kacem
+'''
 from __future__ import print_function
 import os
 import glob
@@ -24,7 +30,7 @@ def buildDataSetCK(size):
 
         fold2= os.listdir(path + 'Emotion/' + fold1[i])
         j = 0
-        
+
         while j < len(fold2) :
             if len(os.listdir(path + 'Emotion/'+ fold1[i] + '/' + fold2[j] + '/')) > 0 :
                 fold3 = glob.glob(path +'cohn-kanade-images/'+ fold1[i] + '/' + fold2[j] + '/*.png')

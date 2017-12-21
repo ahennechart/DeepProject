@@ -1,3 +1,10 @@
+'''
+@author: T.Gosset & A.Hennehart
+
+Helped by A.Kacem
+
+'''
+
 import sys
 import numpy as np
 import cv2

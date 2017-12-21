@@ -1,3 +1,10 @@
+'''
+
+@author: A.Hennechart & T.Gosset
+
+Helped by A.Kacem
+
+'''
 from __future__ import print_function
 import os
 import keras
@@ -8,7 +15,7 @@ from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation
 from keras.optimizers import SGD, Adam, RMSprop
 from keras.layers import Dense, Dropout, Activation, Flatten
-from keras.layers import Convolution2D, MaxPooling2D
+from keras.layers import Conv2D, MaxPooling2D
 from keras.models import load_model
 import numpy as np
 from keras import backend as K
@@ -149,7 +156,7 @@ for n in range(k):
                 optimizer='Adadelta',
                 metrics=['accuracy'])
 
-    model.fit(x_train, y_train,
+    history = model.fit(x_train, y_train,
             batch_size=batch_size,
             epochs=epochs,
             verbose=1,
@@ -163,6 +170,27 @@ for n in range(k):
     y_pred = model.predict_classes(x_test)
     result.extend(y_pred)
     print(model.summary())
+
+    # List all data in history
+    print(history.history.keys())
+
+    # Summarize history for accuracy
+    plt.plot(history.history['acc'])
+    plt.plot(history.history['val_acc'])
+    plt.title('model accuracy')
+    plt.ylabel('accuracy')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'test'], loc='upper left')
+    plt.show()
+
+    # Summarize history for loss
+    plt.plot(history.history['loss'])
+    plt.plot(history.history['val_loss'])
+    plt.title('model loss')
+    plt.ylabel('loss')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'test'], loc='upper left')
+    plt.show()
 
 mean = mean/k
 

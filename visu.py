@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
+'''
 Created on Wed Dec 20 17:57:31 2017
 
 @author: kacem
-"""
-
-
+'''
 from __future__ import print_function
 
 from keras.preprocessing.image import load_img, img_to_array
