@@ -60,7 +60,7 @@ Permits to detect faces in the input picture, to crop it and then to resize the 
 
 ### ConfusionMatrixBuild.py
 
-**plot_confusion_matrix(cm, classes,normalize=False,title='Confusion matrix',cmap=plt.cm.Blues) **
+**plot_confusion_matrix(cm, classes,normalize=False,title='Confusion matrix',cmap=plt.cm.Blues)**
 
 ```
 Parameters : cm = Confusion Matrix / classes = ['Classe 1', 'Classe2', ...]
