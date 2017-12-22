@@ -96,26 +96,30 @@ We built k new empty folders,then we equally (actually it is equal modulo(k), th
 
 To illustrate our work, we ran with those parameters : 
 
+
+### Run 1 
 - img_rows, img_cols = 32, 32
 - batch_size = 32
 - epochs = 35
 - k = 5
 - optimizer = RMSprop
 
-**Total Test Accuracy : 0.8583**
+**Total Test Accuracy : 0.8657**
 
-### Confusion Matrix
+#### Confusion Matrix
 
 ![](confusionMatrix.png)
 
-### Accuracy
+#### Accuracy
 
 ![](modelAccuracy.png)
 
-### Loss Function
+#### Loss Function
 
 ![](modelLoss.png)
 
+
+### Run 2
 - img_rows, img_cols = 32, 32
 - batch_size = 32
 - epochs = 35
@@ -123,17 +127,17 @@ To illustrate our work, we ran with those parameters :
 - optimizer = RMSprop
 - Architecture Convnet1&2 (64 instead of 32)
 
-**Total Test Accuracy : 0.8657**
+**Total Test Accuracy : 0.8583**
 
-### Confusion Matrix
+#### Confusion Matrix
 
 ![](ConfusionMatrixk10.png)
 
-### Accuracy
+#### Accuracy
 
 ![](Accuracyk10.png)
 
-### Loss Function
+#### Loss Function
 
 ![](Lossk10.png)
 
