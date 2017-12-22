@@ -102,7 +102,7 @@ To illustrate our work, we ran with those parameters :
 - k = 5
 - optimizer = RMSprop
 
-**Total Test Accuracy : 0.8657**
+**Total Test Accuracy : 0.8583**
 
 ### Confusion Matrix
 
@@ -115,6 +115,27 @@ To illustrate our work, we ran with those parameters :
 ### Loss Function
 
 ![](modelLoss.png)
+
+- img_rows, img_cols = 32, 32
+- batch_size = 32
+- epochs = 35
+- k = 10
+- optimizer = RMSprop
+- Architecture Convnet1&2 (64 instead of 32)
+
+**Total Test Accuracy : 0.8657**
+
+### Confusion Matrix
+
+![](Confusion Matrix.png)
+
+### Accuracy
+
+![](Accuracyk10.png)
+
+### Loss Function
+
+![](Lossk10.png)
 
 ## Authors
 
