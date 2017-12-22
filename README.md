@@ -127,7 +127,7 @@ To illustrate our work, we ran with those parameters :
 
 ### Confusion Matrix
 
-![](Confusion Matrix.png)
+![](ConfusionMatrixk10.png)
 
 ### Accuracy
 
