@@ -8,16 +8,6 @@ It is based on a CNN algorithm which is trained and tested on the database CK+ u
 
 ### Usage : 
 
-Datasets are saved for 3 different sizes for a k fold = 5:
-
-- Image dimension : (32, 32) denoted by 'ck5fold.npy'
-- Image dimension : (64, 64) denoted by 'ck5fold64.npy'
-- Image dimension : (96, 96) denoted by 'ck5fold96x96.npy'
-
-A DataSet can also be used for a k-fold = 10:
-
-- Image dimension : (32,32) denoted by 'ck10fold.npy'
-
 If you want to recreate your own DataSet, first you will have to download Ck+ database.
 Then, change the path directory in "LoadCK.py". 
 And finally, uncomment in CNN.py the part "Read and save dataset" and put as comment "Load dataset".
@@ -70,8 +60,7 @@ Show the confusion matrix using a confusion matrix computed with sklearn.metrics
 
 ## Architecture 
 
-
-![](img/architectureLayout.png)
+Architecture
 
 
 
