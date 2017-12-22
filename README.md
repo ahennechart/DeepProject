@@ -10,13 +10,13 @@ It is based on a CNN algorithm which is trained and tested on the database CK+ u
 
 Datasets are saved for 3 different sizes for a k fold = 5:
 
-- Image dimension : (32, 32) Usable with 'ck5fold.npy'
-- Image dimension : (64, 64) Usable with 'ck5fold64.npy'
-- Image dimension : (96, 96) Usable with 'ck5fold96x96.npy'
+- Image dimension : (32, 32) denoted by 'ck5fold.npy'
+- Image dimension : (64, 64) denoted by 'ck5fold64.npy'
+- Image dimension : (96, 96) denoted by 'ck5fold96x96.npy'
 
 A DataSet can also be used for a k-fold = 10:
 
-- Image dimension : (32,32) Usable with 'ck10fold.npy'
+- Image dimension : (32,32) denoted by 'ck10fold.npy'
 
 If you want to recreate your own DataSet, first you will have to download Ck+ database.
 Then, change the path directory in "LoadCK.py". 
@@ -35,13 +35,15 @@ You will need numpy, keras 2.0.9, opencv(-python) (as cv2), itertools, sklearn a
 buildDataSetCK(size)
 
 ```
+Parameter : Size = [row_image,col_image]
 Permits to build the dataset from CK+ with the correct path and at the dimension choosen
-Build a Matrix of [Sequence (3 Images), Label] Parameter : Size = [row_image,col_image]
+Build a Matrix of [Sequence (3 Images), Label] 
 ```
 
 ShuffleDataSet(mat,k,num_classe)
 
 ```
+Parameters : mat = [[[Seq][Label]],...,[Seq][Label]] / k (related to k-fold) / num_classe = number of classes (here 7)
 Permits to shuffle the dataset into the different folders, thus we equilibrate the dataset to ensure us to have data on each class for the training as the testing.
 The function is also spliting the buildDataSetCK output from [Sequence, Label] to [Img1, Label][Img2, Label][Img3, Label]
 All images in a sequence are in the same folder.
@@ -52,7 +54,8 @@ All images in a sequence are in the same folder.
 faceCropping(imgpath)
 
 ```
-Permits to detect faces in the input picture, to crop it and then to resize the picture. 
+Parameter :  imgpath = Path of your image
+Permits to detect faces in the input picture, to crop it and then to resize the picture.
 ```
 
 #### ConfusionMatrixBuild.py
@@ -60,6 +63,7 @@ Permits to detect faces in the input picture, to crop it and then to resize the 
 plot_confusion_matrix(cm, classes,normalize=False,title='Confusion matrix',cmap=plt.cm.Blues) 
 
 ```
+Parameters : cm = Confusion Matrix / classes = ['Classe 1', 'Classe2', ...]
 Show the confusion matrix using a confusion matrix computed with sklearn.metrics.confusion_matrix(y,y_pred).
 ```
 
