@@ -104,15 +104,15 @@ To illustrate our work, we ran with those parameters :
 
 **Total Test Accuracy : 0.8657**
 
-Confusion Matrix
+### Confusion Matrix
 
 ![](confusionMatrix.png)
 
-Accuracy
+### Accuracy
 
 ![](modelAccuracy.png)
 
-Loss Function
+### Loss Function
 
 ![](modelLoss.png)
 
