@@ -32,7 +32,7 @@ You will need numpy, keras 2.0.9, opencv(-python) (as cv2), itertools, sklearn a
 
 ### LoadCK.py
 
-buildDataSetCK(size)
+**buildDataSetCK(size)**
 
 ```
 Parameter : Size = [row_image,col_image]
@@ -40,7 +40,7 @@ Permits to build the dataset from CK+ with the correct path and at the dimension
 Build a Matrix of [Sequence (3 Images), Label] 
 ```
 
-ShuffleDataSet(mat,k,num_classe)
+**ShuffleDataSet(mat,k,num_classe)**
 
 ```
 Parameters : mat = [[[Seq][Label]],...,[Seq][Label]] / k (related to k-fold) / num_classe = number of classes (here 7)
@@ -51,16 +51,16 @@ All images in a sequence are in the same folder.
 
 ### Cropping.py
 
-faceCropping(imgpath)
+**faceCropping(imgpath)**
 
 ```
 Parameter :  imgpath = Path of your image
 Permits to detect faces in the input picture, to crop it and then to resize the picture.
 ```
 
-#### ConfusionMatrixBuild.py
+### ConfusionMatrixBuild.py
 
-plot_confusion_matrix(cm, classes,normalize=False,title='Confusion matrix',cmap=plt.cm.Blues) 
+**plot_confusion_matrix(cm, classes,normalize=False,title='Confusion matrix',cmap=plt.cm.Blues) **
 
 ```
 Parameters : cm = Confusion Matrix / classes = ['Classe 1', 'Classe2', ...]
