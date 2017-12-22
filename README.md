@@ -67,7 +67,7 @@ Show the confusion matrix using a confusion matrix computed with sklearn.metrics
 ## Architecture 
 
 
-![](architectureLayout.png)
+![](img/architectureLayout.png)
 
 
 
@@ -108,15 +108,15 @@ To illustrate our work, we ran with those parameters :
 
 #### Confusion Matrix
 
-![](confusionMatrix.png)
+![](img/confusionMatrix.png)
 
 #### Accuracy
 
-![](modelAccuracy.png)
+![](img/modelAccuracy.png)
 
 #### Loss Function
 
-![](modelLoss.png)
+![](img/modelLoss.png)
 
 
 ### Run 2
@@ -131,15 +131,15 @@ To illustrate our work, we ran with those parameters :
 
 #### Confusion Matrix
 
-![](ConfusionMatrixk10.png)
+![](img/ConfusionMatrixk10.png)
 
 #### Accuracy
 
-![](Accuracyk10.png)
+![](img/Accuracyk10.png)
 
 #### Loss Function
 
-![](Lossk10.png)
+![](img/Lossk10.png)
 
 ## Authors
 
