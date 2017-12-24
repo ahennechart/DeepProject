@@ -1,14 +1,14 @@
 # Deep Project
 
 In this Deep Learning project, we worked on face expression recognition. 
-It is based on a CNN algorithm which is trained and tested on the database CK+ using a simple Architecture. We obtained a validation accuracy of 86% (more or less 2%).
+It is based on a CNN algorithm which is trained and tested on the database CK+ using a very simple Architecture. We obtained a validation accuracy of 86% (more or less 2%).
 
 
 ## Usage and dependencies 
 
 ### Usage : 
 
-If you want to recreate your own DataSet, first you will have to download Ck+ database.
+If you want to recreate your own DataSet, first you will have to download Ck+ database, ask for a user agreement here : http://www.consortium.ri.cmu.edu/ckagree/
 Then, change the path directory in "LoadCK.py". 
 And finally, uncomment in CNN.py the part "Read and save dataset" and put as comment "Load dataset".
 
