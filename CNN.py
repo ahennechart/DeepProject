@@ -29,7 +29,8 @@ from IPython.display import SVG
 from keras.utils.vis_utils import model_to_dot
 from keras.utils import plot_model
 from keras.utils import np_utils
-
+from keras.objectives import categorical_crossentropy
+from WeightedCrossentropy import weighted_categorical_crossentropy
 os.environ['KERAS_BACKEND'] = 'tensorflow'
 
 batch_size = 32
@@ -37,22 +38,22 @@ batch_size = 32
 num_classes = 7
 epochs = 35
 #k choice for the k-fold
-k =5
+k = 10
 
 # input image dimensions
 
 img_rows, img_cols = 32, 32
 
 # Read and save dataset 
-'''
+
+
 DataSet = buildDataSetCK([img_rows, img_cols])
-k_folders = ShuffleDataSet(DataSet,k,num_classes)
-np.save('ck5fold.npy', k_folders)
-'''
+k_folders, weights = ShuffleDataSet(DataSet,k,num_classes)
+np.save('ck10fold.npy', k_folders)
 
 # Load dataset (if already saved)
 
-k_folders=np.load('ck5fold.npy')
+#k_folders=np.load('ck10fold.npy')
 
 # Initialise output
 
@@ -135,15 +136,15 @@ for n in range(k):
     # Convert class vectors to binary class matrices
     y_train = keras.utils.to_categorical(y_train, num_classes)
     y_test = keras.utils.to_categorical(y_test, num_classes)
-    
     # Create model
 
     model = Sequential()
     
-    model.add(Conv2D(32, kernel_size=(3, 3),
+    model.add(Conv2D(64, kernel_size=(3, 3),
                     activation='relu',
                     input_shape=input_shape))
-    model.add(Conv2D(32, (3, 3), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Conv2D(64, (3, 3), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Dropout(0.25))
     model.add(Flatten())
@@ -151,8 +152,8 @@ for n in range(k):
     model.add(Dropout(0.5))
     model.add(Dense(num_classes, activation='softmax'))
     model.summary()
-    model.compile(loss=keras.losses.categorical_crossentropy,
-                optimizer='Adadelta',
+    model.compile(loss=weighted_categorical_crossentropy(weights),
+                optimizer='RMSProp',
                 metrics=['accuracy'])
 
     history = model.fit(x_train, y_train,
