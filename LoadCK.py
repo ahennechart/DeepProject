@@ -1,4 +1,5 @@
 '''
+'''
 
 @author: T.Gosset & A.Hennehart
 
@@ -12,7 +13,7 @@ import Cropping as cf
 from Cropping import faceCropping as fc
 import random as rd
 
-path = 'c:/Users/Admin/Desktop/CK+/'
+path = 'c:/Users/Alix/Desktop/CK+/'
 
 def buildDataSetCK(size):
     
@@ -58,7 +59,7 @@ def buildDataSetCK(size):
 def ShuffleDataSet(mat,k,num_classe):
 
     sortedSeq=[]
-
+    weights = []
     for i in range(num_classe):
         sortedSeq.append([])
 
@@ -67,6 +68,7 @@ def ShuffleDataSet(mat,k,num_classe):
         sortedSeq[n].append(data)
 
     for i in range(num_classe):
+        weights.append((1 - len(sortedSeq)/981.0)*15)
         rd.shuffle(sortedSeq[i])
     
     k_folder=[]
@@ -92,5 +94,6 @@ def ShuffleDataSet(mat,k,num_classe):
                 k_folder[l].extend(seq)
 
 
-    return (k_folder)          
+
+    return (k_folder, weights)          
 
