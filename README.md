@@ -9,6 +9,7 @@ It is based on a CNN algorithm which is trained and tested on the database CK+ u
 ### Usage : 
 
 If you want to recreate your own DataSet, first you will have to download Ck+ database, ask for a user agreement here : http://www.consortium.ri.cmu.edu/ckagree/
+
 Then, change the path directory in "LoadCK.py". 
 And finally, uncomment in CNN.py the part "Read and save dataset" and put as comment "Load dataset".
 
