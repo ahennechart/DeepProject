@@ -1,7 +1,7 @@
 # Deep Project
 
 In this Deep Learning project, we worked on face expression recognition. 
-It is based on a CNN algorithm which is trained and tested on the database CK+ using a very simple Architecture. We obtained a validation accuracy of 86% (more or less 2%).
+It is based on a CNN algorithm which is trained and tested on the database CK+ using a very simple Architecture. We obtained a validation accuracy of 86% (more or less 2%)(without WeightedCrossentropy).
 
 
 ## Usage and dependencies 
