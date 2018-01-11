@@ -1,5 +1,4 @@
 '''
-'''
 
 @author: T.Gosset & A.Hennehart
 
@@ -19,7 +18,7 @@ def buildDataSetCK(size):
     
     fold1 =os.listdir(path + 'Emotion')
 
-    print (glob.glob(path + 'Emotion'))
+    #print (glob.glob(path + 'Emotion'))
 
     mat= []
     x = []
@@ -68,7 +67,7 @@ def ShuffleDataSet(mat,k,num_classe):
         sortedSeq[n].append(data)
 
     for i in range(num_classe):
-        weights.append((1 - len(sortedSeq)/981.0)*15)
+        weights.append((1 - len(sortedSeq[i])/981.0)*num_classe)
         rd.shuffle(sortedSeq[i])
     
     k_folder=[]
@@ -90,10 +89,35 @@ def ShuffleDataSet(mat,k,num_classe):
                 j=j+1
                 left-=1
             else:
+                rand=[]
+                for j in range (k):
+                    rand.append(j)
+                
+                m=rd.randint(0, len(rand)-1)
+                l=rand[m]
+                del rand[m]
+                k_folder[l].extend(seq)
+                '''
                 l=rd.randint(0,k-1)
                 k_folder[l].extend(seq)
-
+                '''
 
 
     return (k_folder, weights)          
+
+# Build an images Set for a demo
+
+def BuildDemoSet(size, dpath):
+    dim = (size[0],size[1])
+    x=[]
+    fold = glob.glob(dpath)
+    k = len(fold)
+    for n in range (k):    
+        img  = fold[n]
+        img2 = fc(img)
+        resized = cv.resize(img2, dim, interpolation = cv.INTER_AREA)
+        x.append(resized)
+    return (x)
+
+        
 
