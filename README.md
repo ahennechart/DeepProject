@@ -145,5 +145,5 @@ To illustrate our work, we ran with those parameters :
 ## Contributors
 
 * **Anis Kacem**
-
+* **Mohamed Daoudi**
 
