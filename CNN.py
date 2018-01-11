@@ -15,7 +15,7 @@ from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation
 from keras.optimizers import SGD, Adam, RMSprop
 from keras.layers import Dense, Dropout, Activation, Flatten
-from keras.layers import Conv2D, MaxPooling2D
+from keras.layers import Conv2D, MaxPooling2D, AveragePooling2D
 from keras.models import load_model
 import numpy as np
 from keras import backend as K
@@ -36,24 +36,34 @@ os.environ['KERAS_BACKEND'] = 'tensorflow'
 batch_size = 32
 # 7 classes for CK+
 num_classes = 7
-epochs = 35
+epochs = 40
 #k choice for the k-fold
 k = 10
 
 # input image dimensions
 
-img_rows, img_cols = 32, 32
+img_rows, img_cols = 96, 96
 
 # Read and save dataset 
 
 
 DataSet = buildDataSetCK([img_rows, img_cols])
 k_folders, weights = ShuffleDataSet(DataSet,k,num_classes)
-np.save('ck10fold.npy', k_folders)
+np.save('ck%sfold%sx%s.npy'%(k, img_rows, img_cols), k_folders)
+# weights[0]=weights[0]*0.5
+print(weights)
+weights[1]=weights[1]*1.15
+weights[3]=weights[3]*1.15
+weights[5]=weights[5]*1.15
+weights[6]=weights[6]*0.9
+print(weights)
+# Define your own weights for weighted-crossentropy
+
+#weights=[2.15, 5.25, 1.45, 4.65, 1.32, 4.2, 1.28]
 
 # Load dataset (if already saved)
 
-#k_folders=np.load('ck10fold.npy')
+#k_folders=np.load('ck10fold96x96.npy')
 
 # Initialise output
 
@@ -88,7 +98,7 @@ for n in range(k):
             x_train.append(trainSet[j][i][0])
             y_train.append(trainSet[j][i][1])
 
-    # Initialise TestSet
+    # Initialise TestSet 
 
     x_test = []
     y_test = []
@@ -140,14 +150,20 @@ for n in range(k):
 
     model = Sequential()
     
-    model.add(Conv2D(64, kernel_size=(3, 3),
+    model.add(Conv2D(96, kernel_size=(5, 5),
                     activation='relu',
                     input_shape=input_shape))
-    model.add(MaxPooling2D(pool_size=(2, 2)))
-    model.add(Conv2D(64, (3, 3), activation='relu'))
-    model.add(MaxPooling2D(pool_size=(2, 2)))
+    #model.add(AveragePooling2D(pool_size=(2, 2)))
+    #model.add(Conv2D(64, (3, 3), activation='relu'))
+    #model.add(AveragePooling2D(pool_size=(2, 2)))
+    model.add(Conv2D(32, (3, 3), activation='relu'))
+    # model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Conv2D(32, (3, 3), activation='relu'))
+    model.add(AveragePooling2D(pool_size=(2, 2)))
     model.add(Dropout(0.25))
     model.add(Flatten())
+    #model.add(Dense(32, activation='relu'))
+    #model.add(Dropout(0.5))
     model.add(Dense(32, activation='relu'))
     model.add(Dropout(0.5))
     model.add(Dense(num_classes, activation='softmax'))
@@ -173,7 +189,7 @@ for n in range(k):
 
     # List all data in history
     print(history.history.keys())
-
+    
     # Summarize history for accuracy
     plt.plot(history.history['acc'])
     plt.plot(history.history['val_acc'])
@@ -181,7 +197,8 @@ for n in range(k):
     plt.ylabel('accuracy')
     plt.xlabel('epoch')
     plt.legend(['train', 'test'], loc='upper left')
-    plt.show()
+    plt.savefig('Accuracy_k=%s_dim=%s.png'%(n, img_cols))
+    plt.close('all')
 
     # Summarize history for loss
     plt.plot(history.history['loss'])
@@ -190,10 +207,14 @@ for n in range(k):
     plt.ylabel('loss')
     plt.xlabel('epoch')
     plt.legend(['train', 'test'], loc='upper left')
-    plt.show()
+    plt.savefig('Loss_k=%s_dim=%s.png'%(n, img_cols))
+    plt.close('all')
+
+    # Save models weights
+    model.save_weights('model_k=%s_dim=%s_epochs=%s'%(n, img_cols, epochs))
+
 
 mean = mean/k
-
 print('Total Test accuracy:', mean)
 print (model.layers[2].output)
 
@@ -207,5 +228,6 @@ np.set_printoptions(precision=2)
 plt.figure()
 plot_confusion_matrix(cnf_matrix, classes=['Angry','Contempt','Disgust','Fear','Happy','Sadness','Surprise'], normalize=True,
                       title='Normalized confusion matrix')
-
+plt.savefig('ConfusionMatrix_k=%s_dim=%s_epoch=%s.png'%(k, img_cols, epochs))
 plt.show()
+
