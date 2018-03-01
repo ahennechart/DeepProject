@@ -97,6 +97,7 @@ To illustrate our work, we ran with those parameters :
 - epochs = 35
 - k = 5
 - optimizer = RMSprop
+- No weighted crossentropy
 
 **Total Test Accuracy : 0.8657**
 
@@ -120,6 +121,7 @@ To illustrate our work, we ran with those parameters :
 - k = 10
 - optimizer = RMSprop
 - Architecture Convnet1&2 (64 instead of 32)
+- No weighted crossentropy
 
 **Total Test Accuracy : 0.8583**
 
@@ -135,9 +137,22 @@ To illustrate our work, we ran with those parameters :
 
 ![](img/Lossk10.png)
 
+### Run 3
+
+- img_rows, img_cols = 96,96
+- batch_size = 32 
+- epochs = 64
+- k = 10
+- optimizer = RMSprop
+- Architecture (cf Architecture)
+- Average pooling instead of Max pooling
+- Weighted Crossentropy
+
+**Total Test Accuracy : 0.8817**
+
 ## Authors
 
-* **Alix Hennechart** - *Initial work* -
+* **Alix Hennechart** - *Main Author* - *Initial work* - 
 
 * **Thomas Gosset** - *Initial work* -
 
