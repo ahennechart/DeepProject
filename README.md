@@ -65,6 +65,7 @@ Architecture
 
 Run 1 & 2.
 
+![](img/ArchitectureLayout.jpg)
 
 
 ## Data Base and treatment
