@@ -69,7 +69,7 @@ Run 1 & 2.
 
 Run 3.
 
-![](img/ArchitectureLayout3.jpg)
+![](img/ArchitectureLayoutRun3.jpg)
 
 
 ## Data Base and treatment
