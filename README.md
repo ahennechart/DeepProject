@@ -15,7 +15,7 @@ And finally, uncomment in CNN.py the part "Read and save dataset" and put as com
 
 ### Dependencies :
 
-The code run under Python 3.5.
+The code run with Python 3.5.
 You will need numpy, keras 2.0.9, opencv(-python) (as cv2), itertools, sklearn and finally os. 
 
 
