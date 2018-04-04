@@ -156,6 +156,10 @@ To illustrate our work, we ran with those parameters :
 
 **Total Test Accuracy : 0.8817**
 
+#### Accuracy 
+
+![](img/ConfusionMatrix_k=10_dim=96_epoch=64.png)
+
 ## Authors
 
 * **Alix Hennechart** - *Main Author* - *Initial work* - 
