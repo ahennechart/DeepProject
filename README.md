@@ -61,13 +61,12 @@ Show the confusion matrix using a confusion matrix computed with sklearn.metrics
 
 ## Architecture 
 
-Architecture
 
-Run 1 & 2.
+### Run 1 & 2 :
 
 ![](img/ArchitectureLayout.jpg)
 
-Run 3.
+### Run 3 :
 
 ![](img/ArchitectureLayoutRun3.jpg)
 
